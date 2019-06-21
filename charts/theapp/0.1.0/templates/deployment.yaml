@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: theapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: theapp
+  template:
+    metadata:
+      labels:
+        app: theapp
+    spec:
+      containers:
+      - name: theapp
+        image: itsdesm/theapp:v1
+        ports:
+        - name: http
+          containerPort: 8080
