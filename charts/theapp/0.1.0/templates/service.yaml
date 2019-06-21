@@ -5,6 +5,7 @@ metadata:
   labels:
     app: theapp
 spec:
+  type: NodePort
   ports:
   - port: 8080
     protocol: TCP
