@@ -5,11 +5,10 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
- rules:
- - host: theapp.com
-   http:
-     paths:
-     - path: /*
-       backend:
-         serviceName: theapp
-         servicePort: 8080
+  rules:
+  - http:
+    paths:
+    - path: /
+      backend:
+        serviceName: theapp
+        servicePort: 8080
