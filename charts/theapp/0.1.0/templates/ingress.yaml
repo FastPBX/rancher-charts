@@ -12,4 +12,4 @@ spec:
       - path: /
         backend:
           serviceName: theapp
-          servicePort: 8080
+          servicePort: 443
