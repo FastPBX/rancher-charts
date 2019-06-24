@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: theapp
-        image: itsdesm/theapp:v2
+        image: itsdesm/theapp:v3
         env:
         - name: "APP_NAME"
           value: {{ .Values.name | quote }}
