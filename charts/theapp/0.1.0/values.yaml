@@ -1,9 +1,2 @@
-favorite:
-  drink: coffee
-  food: pizza
-
-subchart:
-  dessert: ice cream
-
-global:
-  salad: ceasar
+domain: test.mrclusia.com
+name: AppName

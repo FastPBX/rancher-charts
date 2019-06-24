@@ -6,9 +6,10 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - http:
-    paths:
-    - path: /
-      backend:
+  - host: {{ .Values.domain | quote }}
+    http:
+      paths:
+      - path: /*
+        backend:
         serviceName: theapp
         servicePort: 8080

@@ -1,0 +1,13 @@
+questions:
+- variable: domain
+  label: App Domain name
+  description: "Domain Name To User"
+  type: string
+  required: true  
+  group: "Basic Settings"
+- variable: name
+  label: App Name
+  description: "App Name To Display"
+  type: string
+  required: true  
+  group: "Basic Settings"

@@ -17,6 +17,9 @@ spec:
       containers:
       - name: theapp
         image: itsdesm/theapp:v1
+        env:
+        - name: "APP_NAME"
+          value: {{ .Values.name | quote }}
         ports:
         - name: http
           containerPort: 8080
