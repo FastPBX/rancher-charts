@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: theapp-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: 'traefik'
 spec:
   rules:
   - host: {{ .Values.domain | quote }}
