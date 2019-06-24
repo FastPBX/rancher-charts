@@ -21,5 +21,5 @@ spec:
         - name: "APP_NAME"
           value: {{ .Values.name | quote }}
         ports:
-        - name: https
+        - name: http
           containerPort: 8080
