@@ -11,5 +11,5 @@ spec:
       paths:
       - path: /*
         backend:
-        serviceName: theapp
-        servicePort: 8080
+          serviceName: theapp
+          servicePort: 8080
