@@ -9,7 +9,7 @@ spec:
   - host: {{ .Values.domain | quote }}
     http:
       paths:
-      - path: /*
+      - path: /
         backend:
           serviceName: theapp
           servicePort: 8080
