@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: theapp-ingress
   annotations:
-    kubernetes.io/ingress.class: 'traefik'
+    kubernetes.io/ingress.class: traefik
 spec:
   rules:
   - host: {{ .Values.domain | quote }}
@@ -12,4 +12,6 @@ spec:
       - path: /
         backend:
           serviceName: theapp
-          servicePort: 443
+          servicePort: 80
+  tls:
+   - secretName: traefik-default-cert

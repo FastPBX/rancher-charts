@@ -22,4 +22,4 @@ spec:
           value: {{ .Values.name | quote }}
         ports:
         - name: https
-          containerPort: 8443
+          containerPort: 8080
