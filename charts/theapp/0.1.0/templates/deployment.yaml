@@ -16,10 +16,31 @@ spec:
     spec:
       containers:
       - name: theapp
-        image: itsdesm/theapp:v3
+        image: itsdesm/theapp:v4
         env:
         - name: "APP_NAME"
           value: {{ .Values.name | quote }}
+        env:
+        - name: MY_NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        - name: MY_POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: MY_POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: MY_POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        - name: MY_POD_SERVICE_ACCOUNT
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.serviceAccountName
         ports:
         - name: http
           containerPort: 8080
