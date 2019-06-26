@@ -1,17 +1,17 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ template "fullname" . }}-ingress
+  name: {{ template "fullname" $ }}-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
-    certmanager.k8s.io/cluster-issuer: {{ .Release.Name | quote }}-issuer
+    certmanager.k8s.io/cluster-issuer: {{ .Release.Name }}-issuer
 spec:
   tls:
     - hosts:
-      - {{ .Values.domain | quote }}
-      secretName: {{ .Release.Name | quote }}-cert
+      - {{ .Values.domain }}
+      secretName: {{ .Release.Name }}-cert
   rules:
-  - host: {{ .Values.domain | quote }}
+  - host: {{ .Values.domain }}
     http:
       paths:
       - backend:
