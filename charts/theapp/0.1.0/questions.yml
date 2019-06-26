@@ -1,13 +1,36 @@
 questions:
+- image: image
+  label: Docker Image To User
+  description: "Name And Version Of Docker Image"
+  type: string
+  required: true  
+  default: "itsdesm/theapp:v5"
+  group: "Basic Settings"
+
+- variable: replicas
+  label: Replicas To Deploy
+  description: "Number Of App Replicas"
+  type: int
+  default: 3
+  group: "Basic Settings"
+
 - variable: domain
   label: App Domain name
   description: "Domain Name To User"
   type: string
   required: true  
   group: "Basic Settings"
+
 - variable: name
   label: App Name
   description: "App Name To Display"
+  type: string
+  required: true  
+  group: "Basic Settings"
+
+- variable: acme.email
+  label: ACME Email
+  description: "Email Address For LetsEncrypt"
   type: string
   required: true  
   group: "Basic Settings"
