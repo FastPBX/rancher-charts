@@ -1,5 +1,5 @@
 questions:
-- image: image
+- variable: image
   label: Docker Image To User
   description: "Name And Version Of Docker Image"
   type: string
