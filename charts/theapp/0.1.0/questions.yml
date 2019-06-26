@@ -27,11 +27,3 @@ questions:
   type: string
   required: true  
   group: "Basic Settings"
-
-- variable: acme.email
-  label: ACME Email
-  description: "Email Address For LetsEncrypt"
-  type: string
-  required: true
-  default: "david.melo@fastpbx.com"  
-  group: "Basic Settings"
