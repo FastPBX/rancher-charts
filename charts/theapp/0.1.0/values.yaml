@@ -1,2 +1,6 @@
 domain: test.mrclusia.com
 name: AppName
+image: itsdesm/theapp:v5
+replicas: 3
+acme:
+    email: david.melo@fastpbx.com

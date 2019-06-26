@@ -1,22 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: theapp-deployment
+  name: {{ template "fullname" . }}-deployment
   labels:
-    app: theapp
+    app: {{ template "fullname" . }}
 spec:
-  replicas: 3
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: theapp
+      app: {{ template "fullname" . }}
+      release: "{{ .Release.Name }}"
   template:
     metadata:
       labels:
-        app: theapp
+        app: {{ template "fullname" . }}
+        release: "{{ .Release.Name }}"
     spec:
       containers:
-      - name: theapp
-        image: itsdesm/theapp:v5
+      - name: {{ template "fullname" . }}
+        image: {{ .Values.image | quote }}
         env:
         - name: "APP_NAME"
           value: {{ .Values.name | quote }}

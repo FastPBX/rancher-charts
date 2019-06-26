@@ -1,15 +1,23 @@
-{{/* Generate Basic Labels */}}
-{{- define "mychart.labels"}}
-  labels:
-    generator: helm
-    date: {{ now | html | htmlDate }}
-    chart: {{ .Chart.Name }}
-    version: {{ .Chart.Version }}
-{{- end }}
-
-{{- define "mychart.app" -}}
-app_name: {{ .Chart.Name }}
-app_version: "{{ .Chart.Version }}-{{ .Release.Time.Seconds }}"
+{{/*
+Expand the name of the chart.
+*/}}
+{{- define "name" -}}
+{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
-{{- define "labels" }}from: mychart{{ end }}
+{{/*
+Create a default fully qualified app name.
+We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
+*/}}
+{{- define "fullname" -}}
+{{- $name := default .Chart.Name .Values.nameOverride -}}
+{{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" -}}
+{{- end -}}
+
+{{/*
+Create a default fully qualified app name.
+We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
+*/}}
+{{- define "mariadb.fullname" -}}
+{{- printf "%s-%s" .Release.Name "mariadb" | trunc 63 | trimSuffix "-" -}}
+{{- end -}}

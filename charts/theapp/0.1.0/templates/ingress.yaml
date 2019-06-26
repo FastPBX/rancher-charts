@@ -1,19 +1,19 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: theapp-ingress
+  name: {{ template "fullname" . }}-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
-    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+    certmanager.k8s.io/cluster-issuer: {{ .Release.Name | quote }}-issuer
 spec:
   tls:
     - hosts:
-      - test.mrclusia.com
-      secretName: letsencrypt-test-mrclusia-prod
+      - {{ .Values.domain | quote }}
+      secretName: {{ .Release.Name | quote }}-cert
   rules:
   - host: {{ .Values.domain | quote }}
     http:
       paths:
       - backend:
-          serviceName: theapp
+          serviceName: {{ template "fullname" . }}-service
           servicePort: 80
