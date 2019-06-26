@@ -22,7 +22,6 @@ spec:
         env:
         - name: "APP_NAME"
           value: {{ .Values.name | quote }}
-        env:
         - name: MY_HOST_IP
           valueFrom:
             fieldRef:
