@@ -52,3 +52,7 @@ spec:
         ports:
         - name: http
           containerPort: 8080
+      volumes:
+      - name: test-volume
+        persistentVolumeClaim:
+          claimName: test-volume
