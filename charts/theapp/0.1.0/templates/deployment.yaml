@@ -19,6 +19,9 @@ spec:
       containers:
       - name: {{ template "fullname" . }}
         image: {{ .Values.image | quote }}
+        volumeMounts:
+        - mountPath: "/mnt/data"
+          name: test-volume
         env:
         - name: "APP_NAME"
           value: {{ .Values.name | quote }}
