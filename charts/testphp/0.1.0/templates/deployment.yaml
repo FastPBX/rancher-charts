@@ -16,6 +16,10 @@ spec:
         app: {{ template "fullname" . }}
         release: "{{ .Release.Name }}"
     spec:
+
+      imagePullSecrets:
+        - name: fastpbxdockernexus
+
       containers:
       
         # Our PHP-FPM application
