@@ -14,11 +14,6 @@ data:
         listen 80 default_server;
         listen [::]:80 default_server;
         
-        # set index route
-        location / {
-            index index.php;
-        }
-
         # config for random data file
         location /random.data.100 {
           sendfile off;
@@ -42,7 +37,7 @@ data:
 
         # 404 Catch
         location / {
-          try_files $uri $uri/ =404;
+          try_files $uri $uri/ index.php =404;
         }
         
       }
