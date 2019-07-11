@@ -4,7 +4,7 @@ questions:
   description: "Name And Version Of Docker Image"
   type: string
   required: true  
-  default: "itsdesm/theapp:v5"
+  default: "docker.nexus3.fastpbx.io/testphp:0.2"
   group: "Basic Settings"
 
 - variable: replicas

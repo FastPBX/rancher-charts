@@ -37,7 +37,7 @@ data:
 
         # 404 Catch
         location / {
-          try_files $uri $uri/ index.php =404;
+          try_files $uri $uri/ index.html =404;
         }
         
       }
