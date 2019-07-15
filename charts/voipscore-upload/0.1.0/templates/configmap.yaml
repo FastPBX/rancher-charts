@@ -5,8 +5,6 @@ metadata:
 data:
   nginx.conf: |
     events {}
-    error_log /var/log/nginx/error.log info;
-    access_log /var/log/nginx/access.log;
     http {
       server {
 
@@ -42,6 +40,9 @@ data:
         location / {
           try_files $uri $uri/ index.html =404;
         }
+
+        error_log /var/log/nginx/error.log info;
+        access_log /var/log/nginx/access.log;
         
       }
     }
