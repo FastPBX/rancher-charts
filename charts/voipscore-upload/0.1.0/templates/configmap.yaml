@@ -5,6 +5,8 @@ metadata:
 data:
   nginx.conf: |
     events {}
+    error_log /var/logs/nginx/error.log info;
+    access_log /var/logs/nginx/access.log;
     http {
       server {
 
@@ -31,6 +33,7 @@ data:
           fastcgi_param REQUEST_METHOD $request_method;
           fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
           fastcgi_pass 127.0.0.1:9000;
+          client_max_body_size 50M;
         }
         
         server_name _;
