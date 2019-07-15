@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: udp-services
-  namespace: ingress-nginx
-data:
-  55510: "default/voipscore-udp-service:55510"
