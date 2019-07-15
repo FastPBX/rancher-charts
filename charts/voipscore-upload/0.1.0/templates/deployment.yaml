@@ -49,6 +49,8 @@ spec:
         # along with the files shared with the PHP-FPM app.
         - image: nginx:1.7.9
           name: {{ template "name" . }}-nginx
+          command: ["/bin/sh"]
+          args: ["-c","rm -f /var/log/nginx/*"]
           volumeMounts:
             - name: shared-files
               mountPath: /var/www/html
