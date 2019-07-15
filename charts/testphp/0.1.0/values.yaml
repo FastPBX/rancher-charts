@@ -1,4 +1,0 @@
-domain: phptest.mrclusia.com
-name: AppName
-image: docker.nexus3.fastpbx.io/testphp:0.6
-replicas: 3

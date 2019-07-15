@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: {{ template "name" . }}-deployment
+  labels:
+    app: {{ template "name" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+    
+spec:
+
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "name" . }}
+      release: "{{ .Release.Name }}"
+
+  template:
+
+    metadata:
+      labels:
+        app: {{ template "name" . }}
+        release: "{{ .Release.Name }}"
+
+    spec:
+
+      # Create Shared Volume For Source Code
+      volumes:
+        - name: shared-volume
+          emptyDir: {}
+
+      # Clone Source Code Repo Into Shared Volume
+      initContainers:
+        - name: {{ template "name" . }}-setup
+          image: alpine/git
+          volumeMounts:
+            - name: shared-volume
+              mountPath: /opt/app
+          args:
+            - clone
+            - --single-branch
+            - --
+            - https://github.com/FastPBX/node-echo-server.git
+            - /opt/app
+
+      # Launch Node App From Shared Source Code In Shared Volume
+      containers:
+        - name: {{ template "name" . }}-app
+          image: node:alpine
+          volumeMounts:
+            - name: shared-volume
+              mountPath: /opt/app
+          command: ["/bin/sh"]
+          args: ["-c","node /opt/app/server.js"]
+          env:
+            - name: MY_POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+            - name: MY_HOST_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
+          ports:
+            - name: "55510udp"
+              containerPort: 55510
+              protocol: UDP

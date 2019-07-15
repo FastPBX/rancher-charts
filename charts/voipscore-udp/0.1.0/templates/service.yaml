@@ -1,17 +1,17 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "fullname" . }}-service
+  name: {{ template "name" . }}-service
   labels:
-    app: {{ template "fullname" . }}
+    app: {{ template "name" . }}
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
 spec:
-  type: ClusterIP
-  ports:
-  - port: 80
-    name: http
-    targetPort: 80
   selector:
-    app: {{ template "fullname" . }}
+    app: {{ template "name" . }}
+  ports:
+  - name: "55510"
+    port: 55510
+    targetPort: 55510
+    protocol: UDP

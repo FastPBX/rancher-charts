@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ template "fullname" $ }}-ingress
+  name: {{ template "name" $ }}-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
@@ -10,5 +10,5 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: {{ template "fullname" . }}-service
+          serviceName: {{ template "name" . }}-service
           servicePort: 80

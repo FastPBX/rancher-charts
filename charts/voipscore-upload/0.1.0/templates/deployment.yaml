@@ -1,19 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "fullname" . }}-deployment
+  name: {{ template "name" . }}-deployment
   labels:
-    app: {{ template "fullname" . }}
+    app: {{ template "name" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "fullname" . }}
+      app: {{ template "name" . }}
       release: "{{ .Release.Name }}"
   template:
     metadata:
       labels:
-        app: {{ template "fullname" . }}
+        app: {{ template "name" . }}
         release: "{{ .Release.Name }}"
     spec:
 
@@ -24,7 +27,7 @@ spec:
       
         # Our PHP-FPM application
         - image: {{ .Values.image | quote }}
-          name: {{ template "fullname" . }}-app
+          name: {{ template "name" . }}-app
           volumeMounts:
             - name: shared-files
               mountPath: /var/www/html
@@ -45,7 +48,7 @@ spec:
         # Our nginx container, which uses the configuration declared above,
         # along with the files shared with the PHP-FPM app.
         - image: nginx:1.7.9
-          name: {{ template "fullname" . }}-nginx
+          name: {{ template "name" . }}-nginx
           volumeMounts:
             - name: shared-files
               mountPath: /var/www/html

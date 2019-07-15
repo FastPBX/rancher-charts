@@ -1,0 +1,3 @@
+domain: 
+image: docker.nexus3.fastpbx.io/voipscore-upload:1.0
+replicas: 3

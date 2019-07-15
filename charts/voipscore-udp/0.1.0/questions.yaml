@@ -1,0 +1,13 @@
+- variable: replicas
+  label: Replicas To Deploy
+  description: "Number Of App Replicas"
+  type: int
+  default: 3
+  group: "Basic Settings"
+
+- variable: domain
+  label: App Domain name
+  description: "Domain Name To User"
+  type: string
+  required: true  
+  group: "Basic Settings"
