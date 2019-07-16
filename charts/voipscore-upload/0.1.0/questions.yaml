@@ -4,7 +4,7 @@ questions:
   description: "Name And Version Of Docker Image"
   type: string
   required: true  
-  default: "docker.nexus3.fastpbx.io/voipscore-upload:1.0"
+  default: "docker.nexus3.fastpbx.io/voipscore-upload:1.1"
   group: "Basic Settings"
 
 - variable: replicas
