@@ -47,7 +47,7 @@ spec:
           command:
             - /app
             - "-set"
-            - voip:asterisk=1:5080
+            - voip:voip-asterisk-service=1:5080
           volumeMounts:
             - name: config
               mountPath: /data/kamailio
