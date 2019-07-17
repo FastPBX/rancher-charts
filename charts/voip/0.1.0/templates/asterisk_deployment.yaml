@@ -44,6 +44,9 @@ spec:
 
         - name: config
           image: docker.nexus3.fastpbx.io/asterisk-config:0.2
+          env:
+            - name: CLOUD
+              value: do
           volumeMounts:
             - name: config
               mountPath: /etc/asterisk
