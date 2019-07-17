@@ -47,6 +47,8 @@ spec:
           env:
             - name: CLOUD
               value: do
+          command:
+            - /app
           volumeMounts:
             - name: config
               mountPath: /etc/asterisk
