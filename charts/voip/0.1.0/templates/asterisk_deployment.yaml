@@ -43,7 +43,7 @@ spec:
               mountPath: /etc/asterisk
 
         - name: config
-          image: docker.nexus3.fastpbx.io/asterisk-config:0.1
+          image: docker.nexus3.fastpbx.io/asterisk-config:0.2
           volumeMounts:
             - name: config
               mountPath: /etc/asterisk
