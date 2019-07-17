@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: {{ template "name" . }}-asterisk-deployment
+  labels:
+    component: {{ template "name" . }}-asterisk
+    release: "{{ .Release.Name }}"
+
+spec:
+
+  replicas: {{ .Values.replicaCount }}
+
+  selector:  
+    matchLabels:
+      component: {{ template "name" . }}-asterisk
+
+  template:
+
+    metadata:
+      labels:
+        component: {{ template "name" . }}-asterisk
+        release: "{{ .Release.Name }}"
+
+    spec:
+
+      imagePullSecrets:
+        - name: fastpbxdockernexus
+
+      volumes:
+        - name: config
+          emptyDir: {}
+        - name: custom
+          secret:
+            secretName: asterisk-config
+
+      containers:
+
+        - name: asterisk
+          image: docker.nexus3.fastpbx.io/asterisk:0.1
+          volumeMounts:
+            - name: config
+              mountPath: /etc/asterisk
+
+        - name: config
+          image: docker.nexus3.fastpbx.io/asterisk-config:0.1
+          volumeMounts:
+            - name: config
+              mountPath: /etc/asterisk
+            - name: custom
+              mountPath: /source

@@ -1,0 +1,7 @@
+questions:
+- variable: replicas
+  label: Replicas To Deploy
+  description: "Number Of App Replicas"
+  type: int
+  default: 1
+  group: "Basic Settings"

@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: DaemonSet
+
+metadata:
+  name: {{ template "name" . }}-kamailio-daemonset
+  labels:
+    component: {{ template "name" . }}-kamailio
+    release: "{{ .Release.Name }}"
+
+spec:
+
+  selector:
+    matchLabels:
+      component: {{ template "name" . }}-kamailio
+      
+  template:
+
+    metadata:
+      name: {{ template "name" . }}-kamailio
+      labels:
+        component: {{ template "name" . }}-kamailio
+        release: "{{ .Release.Name }}"
+        
+    spec:
+
+      imagePullSecrets:
+        - name: fastpbxdockernexus
+
+      hostNetwork: true
+
+      volumes:
+        - name: config
+
+      containers:
+
+        - name: kamailio
+          image: docker.nexus3.fastpbx.io/kamailio:0.1
+          volumeMounts:
+            - name: config
+              mountPath: /data/kamailio
+
+        - name: rtpproxy
+          image: docker.nexus3.fastpbx.io/rtpproxy:0.1
+
+        - name: dispatchers
+          image: docker.nexus3.fastpbx.io/dispatchers:0.1
+          command:
+            - /app
+            - "-set"
+            - voip:asterisk=1:5080
+          volumeMounts:
+            - name: config
+              mountPath: /data/kamailio
