@@ -2,7 +2,7 @@ kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: voip-manager
-  namespace: {{ template "name" . }}
+  namespace: voip
 rules:
   - apiGroups: [""] # "" indicates the core API group
     resources: ["pods","endpoints","services"]
@@ -17,7 +17,7 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: manager
-  namespace: {{ template "name" . }}
+  namespace: voip
 subjects:
   - kind: User
     name: system:serviceaccount:voip:default

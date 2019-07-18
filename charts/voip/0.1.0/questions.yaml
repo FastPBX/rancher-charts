@@ -18,7 +18,7 @@ questions:
   description: "Name And Version Of Image"
   type: string
   required: true  
-  default: "docker.nexus3.fastpbx.io/asterisk-config:0.3" 
+  default: "docker.nexus3.fastpbx.io/asterisk-config:0.4" 
   group: "Asterisk Settings"
 - variable: astreplicas
   label: Asterisk Pods To Deploy
@@ -30,5 +30,5 @@ questions:
   label: Asterisk Custom Config URL
   description: "URL of ZIP file"
   type: string
-  default: http://admin.fastpbx.com/custom/custom.zip
+  default: http://profilehub.io/config.zip
   group: "Asterisk Settings"
