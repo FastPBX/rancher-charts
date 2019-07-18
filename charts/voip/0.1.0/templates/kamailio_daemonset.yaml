@@ -40,13 +40,13 @@ spec:
               mountPath: /data/kamailio
           env:
             - name: CLOUD
-              value: do
+              value: {{ .Values.cloud }}
 
         - name: rtpproxy
           image: docker.nexus3.fastpbx.io/rtpproxy:0.1
           env:
             - name: CLOUD
-              value: do
+              value: {{ .Values.cloud }}
 
         - name: dispatchers
           image: docker.nexus3.fastpbx.io/dispatchers:0.1

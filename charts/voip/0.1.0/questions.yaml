@@ -1,7 +1,21 @@
 questions:
-- variable: replicas
-  label: Replicas To Deploy
-  description: "Number Of App Replicas"
+- variable: cloud
+  label: Cloud Provider
+  description: "Short name of cloud provider"
+  type: string
+  required: true  
+  default: "do" 
+  group: "General Settings"
+- variable: astimage
+  label: Docker Image for Asterisk Config
+  description: "Name And Version Of Image"
+  type: string
+  required: true  
+  default: "docker.nexus3.fastpbx.io/asterisk-config:0.3" 
+  group: "Asterisk Settings"
+- variable: astreplicas
+  label: Asterisk Pods To Deploy
+  description: "Number Of Asterisk Pods"
   type: int
-  default: 1
-  group: "Basic Settings"
+  default: 2
+  group: "Asterisk Settings"

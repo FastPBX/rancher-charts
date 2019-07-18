@@ -9,7 +9,7 @@ metadata:
 
 spec:
 
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.astreplicas }}
 
   selector:  
     matchLabels:
@@ -43,10 +43,10 @@ spec:
               mountPath: /etc/asterisk
 
         - name: config
-          image: docker.nexus3.fastpbx.io/asterisk-config:0.2
+          image: {{ .Values.astimage }}
           env:
             - name: CLOUD
-              value: do
+              value: {{ .Values.cloud }}
           command:
             - /app
           volumeMounts:
