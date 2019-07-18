@@ -20,7 +20,7 @@ metadata:
   namespace: {{ .Release.Namespace }}
 subjects:
   - kind: User
-    name: system:serviceaccount:voip:default
+    name: {{ printf "system:serviceaccount:%s:default" .Release.Namespace }}
     apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: Role
