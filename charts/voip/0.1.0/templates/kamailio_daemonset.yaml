@@ -62,7 +62,7 @@ spec:
           command:
             - /app
             - "-set"
-            - {{ .Release.Namespace }}:voip-asterisk-service=1:5080
+            - {{ printf "%s:%s-asterisk-service=1:5080" .Release.Namespace .Release.Name }}
           volumeMounts:
             - name: config
               mountPath: /data/kamailio
