@@ -6,6 +6,13 @@ questions:
   required: true  
   default: "do" 
   group: "General Settings"
+- variable: siprole
+  label: Node Selector Name
+  description: "Node Selector for fastpbx.io/siprole"
+  type: string
+  required: true  
+  default: "kamailio" 
+  group: "Kamailio Settings"
 - variable: astimage
   label: Docker Image for Asterisk Config
   description: "Name And Version Of Image"

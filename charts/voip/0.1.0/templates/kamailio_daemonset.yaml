@@ -22,6 +22,15 @@ spec:
         release: "{{ .Release.Name }}"
         
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: fastpbx.io/siprole
+                operator: In
+                values:
+                - {{ .Values.siprole }}
 
       imagePullSecrets:
         - name: fastpbxdockernexus

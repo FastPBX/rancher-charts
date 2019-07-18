@@ -1,3 +1,4 @@
 cloud: gcp
 astimage: docker.nexus3.fastpbx.io/asterisk-config:0.3
 astreplicas: 2
+siprole: kamailio
