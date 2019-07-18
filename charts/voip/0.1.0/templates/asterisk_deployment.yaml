@@ -47,6 +47,8 @@ spec:
           env:
             - name: CLOUD
               value: {{ .Values.cloud }}
+            - name: SOURCE
+              value: {{ .Values.asteriskConfigUrl}}
           command:
             - /app
           volumeMounts:

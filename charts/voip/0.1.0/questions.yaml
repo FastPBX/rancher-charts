@@ -26,3 +26,9 @@ questions:
   type: int
   default: 2
   group: "Asterisk Settings"
+- variable: asteriskConfigUrl
+  label: Asterisk Custom Config URL
+  description: "URL of ZIP file"
+  type: string
+  default: http://admin.fastpbx.com/custom/custom.zip
+  group: "Asterisk Settings"
