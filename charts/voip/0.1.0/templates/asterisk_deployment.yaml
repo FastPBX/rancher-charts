@@ -30,9 +30,6 @@ spec:
       volumes:
         - name: config
           emptyDir: {}
-        - name: custom
-          secret:
-            secretName: asterisk-config
 
       containers:
 
@@ -54,5 +51,3 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /etc/asterisk
-            - name: custom
-              mountPath: /source
