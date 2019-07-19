@@ -61,7 +61,7 @@ spec:
           image: docker.nexus3.fastpbx.io/k8s-load-config:0.1
           env:
             - name: CORE_PATH
-              value: git://github.com/FastPBX/scratch
+              value: https://github.com/FastPBX/scratch/releases/download/v0.1/config.zip
             - name: OUTPUT_DIR
               value: "/data/kamailio"
             - name: RERENDER_ACTION
