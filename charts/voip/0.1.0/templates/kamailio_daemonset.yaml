@@ -57,6 +57,19 @@ spec:
             - name: CLOUD
               value: {{ .Values.cloud }}
 
+        - name: loadconfig
+          image: docker.nexus3.fastpbx.io/k8s-load-config:0.1
+          env:
+            - name: CORE_PATH
+              value: git://github.com/FastPBX/scratch
+            - name: OUTPUT_DIR
+              value: "/data/kamailio"
+            - name: RERENDER_ACTION
+              value: "/bin/bash"
+          volumeMounts:
+            - name: config
+              mountPath: /data/kamailio
+
         - name: dispatchers
           image: docker.nexus3.fastpbx.io/dispatchers:0.1
           command:
