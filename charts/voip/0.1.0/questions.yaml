@@ -30,5 +30,26 @@ questions:
   label: Asterisk Custom Config URL
   description: "URL of ZIP file"
   type: string
-  default: http://profilehub.io/config.zip
+  default: http://profilehub.io/asterisk-config.zip
   group: "Asterisk Settings"
+
+- variable: kamCfgImage
+  label: Kamailio Config Image
+  description: "Docker Image Path"
+  type: string
+  default: docker.nexus3.fastpbx.io/k8s-load-config:0.2
+  group: "Kamailio Config"
+
+- variable: kamCfgCorePath
+  label: Kamailio Config Core Path
+  description: "URL of ZIP file"
+  type: string
+  default: https://github.com/FastPBX/scratch/releases/download/v0.1/config.zip
+  group: "Kamailio Config"
+
+- variable: kamCfgRenderAction
+  label: Kamailio ReRenderer Action
+  description: "Re Render Action"
+  type: string
+  default: 
+  group: "Kamailio Config"
