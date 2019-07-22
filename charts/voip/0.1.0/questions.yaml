@@ -37,7 +37,7 @@ questions:
   label: Kamailio Config Image
   description: "Docker Image Path"
   type: string
-  default: docker.nexus3.fastpbx.io/k8s-load-config:0.2
+  default: docker.nexus3.fastpbx.io/k8s-load-config:0.3
   group: "Kamailio Config"
 
 - variable: kamCfgCorePath

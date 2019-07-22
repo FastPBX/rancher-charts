@@ -65,17 +65,8 @@ spec:
             - name: OUTPUT_DIR
               value: "/data/kamailio"
             - name: RERENDER_ACTION
-              value: {{ .Values.kamCfgRenderAction }}
+              value: "kamailio:dispatcher_reload"
           volumeMounts:
             - name: config
               mountPath: /data/kamailio
-
-        - name: dispatchers
-          image: docker.nexus3.fastpbx.io/dispatchers:0.1
-          command:
-            - /app
-            - "-set"
-            - {{ printf "%s:%s-asterisk-service=1:5080" .Release.Namespace .Release.Name }}
-          volumeMounts:
-            - name: config
-              mountPath: /data/kamailio
+        
