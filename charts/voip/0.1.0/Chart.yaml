@@ -1,6 +1,6 @@
 apiVersion: v1
 name: voip
-version: 0.0.12
+version: 0.0.13
 appVersion: "0.0.1"
 description: A Helm app chart for FastPBX Voip
 icon: https://www.fastpbx.com/assets/img/logo-dark.png

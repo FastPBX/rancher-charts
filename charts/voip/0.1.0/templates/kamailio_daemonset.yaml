@@ -46,7 +46,7 @@ spec:
           image: docker.nexus3.fastpbx.io/kamailio:0.1
           volumeMounts:
             - name: config
-              mountPath: /data/kamailio
+              mountPath: /etc/kamailio
           env:
             - name: CLOUD
               value: {{ .Values.cloud }}
@@ -63,10 +63,10 @@ spec:
             - name: CORE_PATH
               value: {{ .Values.kamCfgCorePath }}
             - name: OUTPUT_DIR
-              value: "/data/kamailio"
+              value: "/etc/kamailio"
             - name: RERENDER_ACTION
-              value: "kamailio:dispatcher_reload"
+              value: {{ .Values.kamCfgRenderAction }}
           volumeMounts:
             - name: config
-              mountPath: /data/kamailio
+              mountPath: /etc/kamailio
         
