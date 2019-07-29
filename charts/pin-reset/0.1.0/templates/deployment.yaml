@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: {{ template "name" . }}-deployment
+  labels:
+    app: {{ template "name" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+    
+spec:
+
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "name" . }}
+      release: "{{ .Release.Name }}"
+
+  template:
+
+    metadata:
+      labels:
+        app: {{ template "name" . }}
+        release: "{{ .Release.Name }}"
+
+    spec:
+
+      imagePullSecrets:
+        - name: fastpbxdockernexus
+
+      containers:
+        - name: {{ template "name" . }}-app
+          image: docker.nexus3.fastpbx.io/pin-reset:0.1
+          env:
+            - name: HOST_NAME
+              value: {{ printf "http://%s" .Values.domain }}
+            - name: MAILGUN_API_KEY
+              value:
+            - name: MAILGUN_DOMAIN
+              value:            
+          ports:
+              containerPort: 3000
