@@ -36,8 +36,8 @@ spec:
             - name: HOST_NAME
               value: {{ printf "http://%s" .Values.domain }}
             - name: MAILGUN_API_KEY
-              value:
+              value: test
             - name: MAILGUN_DOMAIN
-              value:            
+              value: test
           ports:
               containerPort: 3000
