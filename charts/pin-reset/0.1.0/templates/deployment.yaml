@@ -34,11 +34,17 @@ spec:
           image: docker.nexus3.fastpbx.io/pin-reset:0.1
           env:
             - name: HOST_NAME
-              value: {{ printf "http://%s" .Values.domain }}
+              value: {{ printf "https://%s" .Values.domain }}
             - name: MAILGUN_API_KEY
-              value: test
+              valueFrom:
+                secretKeyRef:
+                  name: MailGun-Secrets 
+                  key: MAILGUN_API_KEY
             - name: MAILGUN_DOMAIN
-              value: test
+              valueFrom:
+                secretKeyRef:
+                  name: MailGun-Secrets 
+                  key: MAILGUN_DOMAIN
           ports:
             - name: http
               containerPort: 3000
