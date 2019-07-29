@@ -40,4 +40,5 @@ spec:
             - name: MAILGUN_DOMAIN
               value: test
           ports:
+            - name: http
               containerPort: 3000
