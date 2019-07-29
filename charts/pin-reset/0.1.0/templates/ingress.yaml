@@ -9,7 +9,7 @@ spec:
   tls:
     - hosts:
       - {{ .Values.domain }}
-      secretName: letsencrypt-prod
+      secretName: {{ template "name" $ }}-cert
   rules:
   - host: {{ .Values.domain }}
     http:
