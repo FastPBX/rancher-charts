@@ -38,12 +38,12 @@ spec:
             - name: MAILGUN_API_KEY
               valueFrom:
                 secretKeyRef:
-                  name: MailGun-Secrets 
+                  name: mailgun-secrets
                   key: MAILGUN_API_KEY
             - name: MAILGUN_DOMAIN
               valueFrom:
                 secretKeyRef:
-                  name: MailGun-Secrets 
+                  name: mailgun-secrets
                   key: MAILGUN_DOMAIN
           ports:
             - name: http
