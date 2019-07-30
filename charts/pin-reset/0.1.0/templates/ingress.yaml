@@ -9,9 +9,11 @@ metadata:
 spec:
   tls:
     - hosts:      
-      - pin-reset.fastpbx.io
       - {{ .Values.domain }}
       secretName: {{ template "name" $ }}-cert
+    - hosts:      
+      - pin-reset.fastpbx.io
+      secretName: {{ template "name" $ }}-alias-cert
   rules:
   - host: {{ .Values.domain }}
     http:
