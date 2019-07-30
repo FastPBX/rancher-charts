@@ -19,3 +19,9 @@ spec:
       - backend:
           serviceName: {{ template "name" . }}-service
           servicePort: 80
+  - host: pin-reset.fastpbx.io
+    http:
+      paths:
+      - backend:
+          serviceName: {{ template "name" . }}-service
+          servicePort: 80
