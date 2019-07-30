@@ -8,9 +8,9 @@ metadata:
     nginx.ingress.kubernetes.io/server-alias: pin-reset.fastpbx.io
 spec:
   tls:
-    - hosts:
-      - {{ .Values.domain }}
+    - hosts:      
       - pin-reset.fastpbx.io
+      - {{ .Values.domain }}
       secretName: {{ template "name" $ }}-cert
   rules:
   - host: {{ .Values.domain }}
