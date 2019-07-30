@@ -9,19 +9,19 @@ metadata:
 spec:
   tls:
     - hosts:      
-      - {{ .Values.domain }}
-      secretName: {{ template "name" $ }}-cert
-    - hosts:      
       - pin-reset.fastpbx.io
       secretName: {{ template "name" $ }}-alias-cert
+    - hosts:      
+      - {{ .Values.domain }}
+      secretName: {{ template "name" $ }}-cert
   rules:
-  - host: {{ .Values.domain }}
+  - host: pin-reset.fastpbx.io
     http:
       paths:
       - backend:
           serviceName: {{ template "name" . }}-service
           servicePort: 80
-  - host: pin-reset.fastpbx.io
+  - host: {{ .Values.domain }}
     http:
       paths:
       - backend:
