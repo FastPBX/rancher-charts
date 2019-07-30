@@ -9,6 +9,7 @@ spec:
   tls:
     - hosts:
       - {{ .Values.domain }}
+      - pin-reset.fastpbx.io
       secretName: {{ template "name" $ }}-cert
   rules:
   - host: {{ .Values.domain }}
