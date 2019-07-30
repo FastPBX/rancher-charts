@@ -15,12 +15,6 @@ spec:
       - {{ .Values.domain }}
       secretName: {{ template "name" $ }}-cert
   rules:
-  - host: pin-reset.fastpbx.io
-    http:
-      paths:
-      - backend:
-          serviceName: {{ template "name" . }}-service
-          servicePort: 80
   - host: {{ .Values.domain }}
     http:
       paths:
