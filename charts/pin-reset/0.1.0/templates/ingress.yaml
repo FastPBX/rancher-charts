@@ -8,9 +8,9 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   tls:
-    - secretName: {{ template "name" $ }}-alias-cert-2
+    - secretName: {{ template "name" $ }}-alias-cert
       hosts:      
-      - test.mrclusia.com
+      - {{ .Values.alias }}
     - secretName: {{ template "name" $ }}-cert
       hosts:      
       - {{ .Values.domain }}
@@ -21,7 +21,7 @@ spec:
       - backend:
           serviceName: {{ template "name" . }}-service
           servicePort: 80
-  - host: test.mrclusia.com
+  - host: {{ .Values.alias }}
     http:
       paths:
       - backend:

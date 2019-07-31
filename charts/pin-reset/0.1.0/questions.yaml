@@ -4,7 +4,7 @@ questions:
   description: "Number Of App Replicas"
   type: int
   default: 1
-  group: "Basic Settings"
+  group: "Deployment Settings"
 
 - variable: domain
   label: App Domain name
@@ -12,4 +12,12 @@ questions:
   type: string
   required: true  
   default: pin-reset.fastpbx.fpool.org
-  group: "Basic Settings"
+  group: "Domain Settings"
+
+- variable: alias
+  label: App CNAME Alias
+  description: "Alias Domain Name"
+  type: string
+  required: false  
+  default: pin-reset.fastpbx.io
+  group: "Domain Settings"
