@@ -3,7 +3,7 @@ questions:
   label: Replicas To Deploy
   description: "Number Of App Replicas"
   type: int
-  default: 3
+  default: 1
   group: "Basic Settings"
 
 - variable: domain
