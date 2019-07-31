@@ -21,3 +21,9 @@ spec:
       - backend:
           serviceName: {{ template "name" . }}-service
           servicePort: 80
+  - host: test.mrclusia.com
+    http:
+      paths:
+      - backend:
+          serviceName: {{ template "name" . }}-service
+          servicePort: 80
