@@ -8,9 +8,6 @@ metadata:
     nginx.ingress.kubernetes.io/server-alias: test.mrclusia.com
 spec:
   tls:
-    - secretName: {{ template "name" $ }}-alias-cert-2
-      hosts:      
-      - test.mrclusia.com
     - secretName: {{ template "name" $ }}-cert
       hosts:      
       - {{ .Values.domain }}

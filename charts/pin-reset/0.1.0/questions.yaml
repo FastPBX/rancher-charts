@@ -11,4 +11,5 @@ questions:
   description: "Domain Name To User"
   type: string
   required: true  
+  default: pin-reset.fastpbx.fpool.org
   group: "Basic Settings"
