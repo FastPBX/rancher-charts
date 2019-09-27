@@ -1,0 +1,15 @@
+questions:
+- variable: replicas
+  label: Replicas To Deploy
+  description: "Number Of App Replicas"
+  type: int
+  default: 1
+  group: "Basic Settings"
+
+- variable: domain
+  label: App Domain name
+  description: "Domain Name To User"
+  type: string
+  required: true
+  default: "testrunner.fpool.org"
+  group: "Basic Settings"
