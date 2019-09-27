@@ -59,6 +59,9 @@ spec:
           volumeMounts:
             - name: shared-volume
               mountPath: /opt/app
+          envFrom:
+            - configMapRef:
+                name: pbxlink-tester
           command: ["/bin/sh"]
           args: ["-c","node /opt/app/dist/server.js"]
           ports:
