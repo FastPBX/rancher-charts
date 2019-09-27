@@ -60,10 +60,12 @@ spec:
             - name: shared-volume
               mountPath: /opt/app
           envFrom:
-            - configMapRef:
-                name: pbxlink-tester
+          - configMapRef:
+            name: pbxlink-tester
+          - secretRef:
+            name: pbxlink-tester-secrets
           command: ["/bin/sh"]
-          #args: ["-c","node /opt/app/dist/server.js"]
+          args: ["-c","node /opt/app/dist/server.js"]
           ports:
             - name: "http"
               containerPort: 3000
