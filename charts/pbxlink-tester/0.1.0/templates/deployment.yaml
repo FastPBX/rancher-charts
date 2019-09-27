@@ -61,9 +61,9 @@ spec:
               mountPath: /opt/app
           envFrom:
             - configMapRef:
-              name: pbxlink-tester
+                name: pbxlink-tester
             - secretRef:
-              name: pbxlink-tester-secrets
+                name: pbxlink-tester-secrets
           command: ["/bin/sh"]
           args: ["-c","node /opt/app/dist/server.js"]
           ports:
