@@ -60,10 +60,10 @@ spec:
             - name: shared-volume
               mountPath: /opt/app
           envFrom:
-          - configMapRef:
-            name: pbxlink-tester
-          - secretRef:
-            name: pbxlink-tester-secrets
+            - configMapRef:
+              name: pbxlink-tester
+            - secretRef:
+              name: pbxlink-tester-secrets
           command: ["/bin/sh"]
           args: ["-c","node /opt/app/dist/server.js"]
           ports:
