@@ -63,7 +63,7 @@ spec:
             - configMapRef:
                 name: pbxlink-tester
           command: ["/bin/sh"]
-          args: ["-c","node /opt/app/dist/server.js"]
+          #args: ["-c","node /opt/app/dist/server.js"]
           ports:
             - name: "http"
               containerPort: 3000
