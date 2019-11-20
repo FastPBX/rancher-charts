@@ -8,7 +8,7 @@ metadata:
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
     hasuraService: custom
-  name: name: {{ template "name" . }}-deployment
+  name: {{ template "name" . }}-deployment
 
 spec:
 
