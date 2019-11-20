@@ -1,0 +1,2 @@
+image: hasura/graphql-engine:v1.0.0-beta.10
+domain: clusia-api.fpool.org

@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  labels:
+    app: {{ template "name" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+    hasuraService: custom
+  name: name: {{ template "name" . }}-deployment
+
+spec:
+
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: {{ template "name" . }}
+      release: "{{ .Release.Name }}"
+
+  template:
+
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: {{ template "name" . }}
+        release: "{{ .Release.Name }}"
+
+    spec:
+
+      containers:
+
+      - image: {{ .Values.image | quote }}
+        imagePullPolicy: IfNotPresent
+        name: {{ template "name" . }}-app
+        env:
+          - name: HASURA_GRAPHQL_ACCESS_KEY
+            valueFrom:
+                secretKeyRef:
+                  name: clusia-api-secrets
+                  key: HASURA_GRAPHQL_ACCESS_KEY
+          - name: HASURA_GRAPHQL_DATABASE_URL
+            valueFrom:
+              secretKeyRef:
+                name: clusia-api-secrets
+                key: HASURA_GRAPHQL_DATABASE_URL
+          - name: HASURA_GRAPHQL_ENABLE_CONSOLE
+            valueFrom:
+              secretKeyRef:
+                name: clusia-api-secrets
+                key: HASURA_GRAPHQL_ENABLE_CONSOLE
+        ports:
+          - containerPort: 8080
+          protocol: TCP
+        resources: {}
