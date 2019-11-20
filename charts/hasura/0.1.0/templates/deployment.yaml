@@ -51,6 +51,7 @@ spec:
                 name: clusia-api-secrets
                 key: HASURA_GRAPHQL_ENABLE_CONSOLE
         ports:
-          - containerPort: 8080
-          protocol: TCP
+          - name: http
+            containerPort: 8080
+            protocol: TCP
         resources: {}
