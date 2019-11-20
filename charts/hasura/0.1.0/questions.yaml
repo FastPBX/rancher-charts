@@ -4,5 +4,5 @@ questions:
     description: "Domain Name To User"
     type: string
     required: true  
-    default: clusia-api.fpool.org
+    default: hasura-api.fpool.org
     group: "Domain Settings"
