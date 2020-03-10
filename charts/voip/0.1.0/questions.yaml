@@ -51,7 +51,7 @@ questions:
   label: Kamailio Config Core Path
   description: "URL of ZIP file"
   type: string
-  default: http://n321.fpool.io:28080/livezip/asterisk-kamailio.zip
+  default: http://n321.fpool.io:28080/livezip/kamailio.zip
   group: "Kamailio Config"
 
 - variable: kamCfgRenderAction
