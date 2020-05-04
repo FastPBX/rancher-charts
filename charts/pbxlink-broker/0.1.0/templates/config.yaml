@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pbxlink-broker
+data:
+  APP_URL: pbxlink-events.fpool.org
+  AMQP_URL: amqp://bmzufdda:p3yjRk4EG6AFgme6L__IVwtgxXFH5k8g@fox.rmq.cloudamqp.com/bmzufdda
