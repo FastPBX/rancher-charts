@@ -1,8 +1,11 @@
 cloud: gcp
-astimage: docker.nexus3.fastpbx.io/asterisk-config:0.3
+astimage: docker.nexus3.fastpbx.io/asterisk-config:latest
 astreplicas: 2
 siprole: kamailio
 asteriskConfigUrl: http://admin.fastpbx.com/custom/custom.zip
+asteriskConfigDir: /etc/asterisk
+asteriskConfigRenderAction: asterisk:reload
 kamCfgImage: docker.nexus3.fastpbx.io/k8s-load-config:0.4
 kamCfgCorePath: https://github.com/FastPBX/scratch/releases/download/v0.1/config.zip
-kamCfgRenderAction: 
+kamCfgRenderAction: kamailio:dispatcher_reload
+kamDockerImage: docker.nexus3.fastpbx.io/kamailio:0.2

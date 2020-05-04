@@ -44,8 +44,12 @@ spec:
           env:
             - name: CLOUD
               value: {{ .Values.cloud }}
-            - name: SOURCE
+            - name: CORE_PATH
               value: {{ .Values.asteriskConfigUrl}}
+            - name: OUTPUT_DIR
+              value: {{ .Values.asteriskConfigDir}}
+            - name: RERENDER_ACTION
+              value: {{ .Values.asteriskConfigRenderAction}}
           command:
             - /app
           volumeMounts:

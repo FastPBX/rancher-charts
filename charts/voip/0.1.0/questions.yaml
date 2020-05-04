@@ -18,7 +18,7 @@ questions:
   description: "Name And Version Of Image"
   type: string
   required: true  
-  default: "docker.nexus3.fastpbx.io/asterisk-config:0.4" 
+  default: "docker.nexus3.fastpbx.io/k8s-load-config:0.4" 
   group: "Asterisk Settings"
 - variable: astreplicas
   label: Asterisk Pods To Deploy
@@ -30,8 +30,15 @@ questions:
   label: Asterisk Custom Config URL
   description: "URL of ZIP file"
   type: string
-  default: http://profilehub.io/asterisk-config.zip
+  default: http://n321.fpool.io:28080/livezip/asterisk-wss.zip
   group: "Asterisk Settings"
+
+- variable: kamDockerImage
+  label: Kamailio Docker Image
+  description: "Kamailio Docker Image Path"
+  type: string
+  default: docker.nexus3.fastpbx.io/kamailio:0.2
+  group: "Kamailio Config"
 
 - variable: kamCfgImage
   label: Kamailio Config Image
@@ -44,12 +51,12 @@ questions:
   label: Kamailio Config Core Path
   description: "URL of ZIP file"
   type: string
-  default: https://github.com/FastPBX/scratch/releases/download/v0.1/config.zip
+  default: http://n321.fpool.io:28080/livezip/kamailio.zip
   group: "Kamailio Config"
 
 - variable: kamCfgRenderAction
   label: Kamailio ReRenderer Action
   description: "Re Render Action"
   type: string
-  default: 
+  default: kamailio:dispatcher_reload
   group: "Kamailio Config"
