@@ -31,7 +31,7 @@ spec:
 
       containers:
         - name: {{ template "name" . }}-app
-          image: docker.nexus3.fastpbx.io/pin-reset:0.9
+          image: docker.nexus3.fastpbx.io/pin-reset:1.0
           env:
             - name: HOST_NAME
               value: {{ printf "https://%s" .Values.alias }}
